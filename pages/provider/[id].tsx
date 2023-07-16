@@ -34,7 +34,7 @@ const Provider: NextPage = () => {
         <Header />
         <div 
         onClick={()=>router.push("/")}
-        className="flex  px-12 mt-[2rem] cursor-pointer">
+        className="flex text-customgreen  px-12 mt-[2rem] cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

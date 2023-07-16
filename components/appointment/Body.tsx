@@ -28,7 +28,7 @@ const Body = ({ providers }: { providers: Array<IProvider> }) => {
         <div className="flex items-center gap-x-2 mt-[2rem]">
         <CheckBox setIsAcceptedTerms={setIsAcceptedTerms} isAcceptedTerms={isAcceptedTerms}/> 
         <p>
-          I clearify that i have read and accept the <span className="text-green-600">terms</span> of Temple
+          I clarify that i have read and accept the <span className="text-green-600">terms</span> of Temple
         </p>
         </div>
 

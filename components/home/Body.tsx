@@ -7,8 +7,7 @@ import React, { useEffect, useState } from "react";
 import { IProvider } from "../../Interface/provider.interface";
 import ProviderCard from "./ProvderCard";
 
-
-const Body = ({providers}: {providers:Array<IProvider>}) => {
+const Body = ({ providers }: { providers: Array<IProvider> }) => {
   return (
     <div className="flex justify-between  px-12 mt-[2rem]">
       <div className="text-customgreen font-bold w-1/2">
@@ -55,12 +54,12 @@ const Body = ({providers}: {providers:Array<IProvider>}) => {
             <input type="date" className="border rounded-lg p-2" />
           </div>
         </div>
-      {
-        providers.map((item)=>(
 
-            <ProviderCard key={item.id} data={item}/>
-
-))}
+        <div className="space-y-6">
+          {providers.map((item) => (
+            <ProviderCard key={item.id} data={item} />
+          ))}
+        </div>
       </div>
     </div>
   );
