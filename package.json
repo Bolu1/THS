@@ -5,6 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
+    "test": "jest --watch",
     "lint": "next lint",
     "migrate": "knex migrate:latest",
     "unmigrate": "knex migrate:rollback",

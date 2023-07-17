@@ -8,6 +8,7 @@ import { IProvider } from "../../Interface/provider.interface";
 import ProviderCard from "./ProvderCard";
 
 const Body = ({ providers }: { providers: Array<IProvider> }) => {
+  
   return (
     <div className="flex justify-between  px-12 mt-[2rem]">
       <div className="text-customgreen font-bold w-1/2">
@@ -27,7 +28,7 @@ const Body = ({ providers }: { providers: Array<IProvider> }) => {
             />
           </svg>
 
-          <p className="font-semibold">Go Back</p>
+          <p className="font-semibold">Go back</p>
         </div>
 
         <p className="text-[3rem] mt-[3rem] font-medium">
@@ -41,23 +42,31 @@ const Body = ({ providers }: { providers: Array<IProvider> }) => {
         <div className="flex justify-end  items-center gap-x-3 pb-[2rem]">
           <div className="">
             <p className="font-semibold">Date</p>
+            <input
+              type="datetime-local"
+              className="border rounded-lg p-2"
+              onChange={(e) => {
+                console.log(e.target.value);
+                const d = new Date(e.target.value).getTime();
+                console.log(d);
+              }}
+            />
+          </div>
+
+          <div>
+            <p className="font-semibold">Expertise</p>
             <input type="date" className="border rounded-lg p-2" />
           </div>
 
           <div>
-            <p className="font-semibold">Date</p>
-            <input type="date" className="border rounded-lg p-2" />
-          </div>
-
-          <div>
-            <p className="font-semibold">Date</p>
-            <input type="date" className="border rounded-lg p-2" />
+            <p className="font-semibold">Distance</p>
+            <input type="number" className="border rounded-lg p-2" />
           </div>
         </div>
 
         <div className="space-y-6">
           {providers.map((item) => (
-            <ProviderCard key={item.id} data={item} />
+            <ProviderCard key={item.id} providerData={item} />
           ))}
         </div>
       </div>

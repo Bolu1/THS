@@ -1,18 +1,21 @@
 import React from "react";
+import { IProvider, IProviderInformation } from "../../Interface/provider.interface";
+import { timeStampToDate, timeStampToDateWithMonth, timeToTime } from "../../utils/helpers";
 
 
 interface IProps {
   isAcceptedTerms: boolean;
   setIsAcceptedTerms: React.Dispatch<React.SetStateAction<boolean>>;
+  data: IProviderInformation
 }
 
 function ProviderInformation(props: IProps) {
   return (
     <div>
-      <div className="p-4 py-4 relative rounded-lg group  space-x-6 bg-white bg-opacity-50 shadow-md ">
+      <div className="p-4 py-4 relative rounded-lg group  space-x-6  w-[100%] bg-opacity-50 shadow-md ">
         <div className="flex p-4 gap-x-3 ">
           <img
-            src="https://tailus.io/sources/blocks/twocards/preview/images/woman.jpg"
+            src={props.data.photo}
             alt="art cover"
             loading="lazy"
             className="h-16 w-16 object-cover object-top rounded-full"
@@ -21,12 +24,10 @@ function ProviderInformation(props: IProps) {
             <div className="">
               <div className="space-y ">
                 <h4 className="text-2xl font-semibold text-cyan-900">
-                  Provident de illo eveniet commodi fuga fugiat laboriosam
-                  expedita.
+                  {props.data.name}
                 </h4>
                 <h4 className="text- font-semibold text-cyan-900">
-                  Provident de illo eveniet commodi fuga fugiat laboriosam
-                  expedita.
+                  {props.data.expertise}
                 </h4>
               </div>
             </div>
@@ -111,7 +112,7 @@ function ProviderInformation(props: IProps) {
           <div className="w-5/6 space-y-4 text-customgreen font-medium">
             <div className="flex gap-x-3">
 
-              Tomorrow, June 12 3:40PM
+            {timeStampToDateWithMonth(props.data.timestamp)}. {timeToTime(props.data.timestamp)}
             </div>
 
             <div className="flex gap-x-3">

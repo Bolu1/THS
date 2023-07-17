@@ -14,6 +14,7 @@ const Home: NextPage = () => {
   const [providers, setProviders] = React.useState<Array<IProvider>>([])
   const [loading, setLoading] = useState<boolean>(true)
 
+
   const fetch = async()=>{
 
     const {data} = await axios.get("/api/providers/get");
