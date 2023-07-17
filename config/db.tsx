@@ -1,9 +1,5 @@
 import { Client } from "pg";
 
-interface IConnection{
-    query: ()=>any
-}
-
 export const createConnection = ():Client  =>{
     const client = new Client({
         host: process.env.DB_HOST,

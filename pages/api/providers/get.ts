@@ -5,7 +5,6 @@ import { createConnection } from "../../../config/db";
 
 const handler = nc();
 
-
 handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const client = createConnection();

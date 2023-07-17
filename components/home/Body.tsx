@@ -40,7 +40,7 @@ const Body = ({ providers }: { providers: Array<IProvider> }) => {
 
       <div className="max-w-[60%] px-12">
         <div className="flex justify-end  items-center gap-x-3 pb-[2rem]">
-          <div className="">
+          <div className="" data-testid="dateInput">
             <p className="font-semibold">Date</p>
             <input
               type="datetime-local"

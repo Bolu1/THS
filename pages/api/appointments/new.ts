@@ -8,9 +8,18 @@ const handler = nc();
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+
+    
     const client = createConnection();
     client.connect();
     const payload:ICreateAppointment = req.body
+    if(!payload.provider_id || !payload.duration || !payload.reminder_email || !payload.timestamp || !payload.availability_id){
+
+      return res.status(400).json({
+        "status": "Error",
+        "message": "All fields are required",
+    });
+    }
     // insert into appointment db
     await client.query(
         `

@@ -9,7 +9,7 @@ import Header from "../components/home/Header";
 import Body from "../components/home/Body";
 import Loader from "../components/utils/Loader";
 
-const Home: NextPage = () => {
+export default function Home () {
 
   const [providers, setProviders] = React.useState<Array<IProvider>>([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -30,14 +30,16 @@ const Home: NextPage = () => {
   return (
     <div className="w-full">
         <Header />
+        <>
         {
           !loading?
-          <Body providers={providers}/>
+          <Body providers={providers} data-testid="dateInput"/>
           :
           <Loader/>
         }
+        </>
     </div>
   );
 };
 
-export default dynamic(() => Promise.resolve(Home), { ssr: false });
+// export default dynamic(() => Promise.resolve(Home), { ssr: false });
