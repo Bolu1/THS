@@ -8,6 +8,7 @@ export const createConnection = ():Client  =>{
         database: process.env.DB_DATABASE,
         port: 5432,
       });
+      console.log(process.env.DB_HOST)
       return client
 
 }

@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+        - 5432:5432
+    environment:
+        POSTGRES_DB: mydb
+        POSTGRES_PASSWORD: mypassword
+        POSTGRES_USER: myuser
+        POSTGRES_HOST: 172.17.0.1
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: next-client-application
+    environment:
+      - DB_URL= postgresql://myuser:mypassword@localhost:5432/mydb
+      - DB_USER=myuser
+      - DB_PASSWORD=mypassword
+      - DB_DATABASE=mydb
+      - DB_HOST=172.17.0.1
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
+    command: npm run migrate
