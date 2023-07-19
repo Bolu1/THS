@@ -63,3 +63,10 @@ $ npm run dev
 $ npm run test
 
 ```
+## Running docker container
+
+```bash
+# Docker up
+$ docker-compose up
+
+```
